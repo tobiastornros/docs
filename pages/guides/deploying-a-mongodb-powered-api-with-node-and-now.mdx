@@ -209,7 +209,21 @@ Now that you have your MongoDB database, an API endpoint, and configuration all 
 
 Using Now CLI, you can start a development process from your terminal that mimics your production environment using the configuration you provided in your `now.json` file.
 
-To start developing, run the following from your terminal:
+To start developing, create a `.env` file containing the `MONGODB_URI` environment variable and the connection string you want to use locally:
+
+```bash
+MONGODB_URI=mongodb+srv://<user>:<password>@my-cluster-uf345.mongodb.net/<database-name>?retryWrites=true
+```
+
+<Caption>
+  A <InlineCode>.env</InlineCode> file containing the{' '}
+  <InlineCode>MONGODB_URI</InlineCode> environment variable and its value for
+  local development.
+</Caption>
+
+This file allows the Now development process to use the environment variable with a value, since you are using a Now Secret in production which isn't accessible outside of the secure deployment environment.
+
+Next, run the Now CLI development command from the terminal:
 
 <TerminalInput>now dev</TerminalInput>
 <Caption>Starting Now CLI's dev process from the terminal.</Caption>
